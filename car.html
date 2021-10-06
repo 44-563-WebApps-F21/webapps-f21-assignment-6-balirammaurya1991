@@ -39,6 +39,17 @@
     <input type="button" onclick="orderCar()" value="Order a car">
   </form>
   <p id ="result2"></p>
+
+  <form>
+    <label for="form1_color"></label>Enter a property </label>
+    <input type ="text" id="form1_color" name="form1_color"  value="color"> <br>
+
+    <label for="form1_value">Enter a value</label>
+    <input type ="text" id="form1_value" name="form1_value"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
 <script>
     function powers()
     {
@@ -112,7 +123,15 @@
         {
            my_car.push({"gps":false});
         }
-        result.innerHTML="car properties: ac: "+my_car[0].ac+", electric: "+my_car[1].electric+", gps:"+my_car[2].gps;
+        result.innerHTML="car properties ac: "+my_car[0].ac+", electric: "+my_car[1].electric+", gps:"+my_car[2].gps;
+
+    }
+    function updateCar()
+    {
+        let color = document.getElementById("form1_color").value;
+        let value = document.getElementById("form1_value").value;
+        result = document.getElementById("result2");
+        result.innerHTML="car properties: "+color+", "+value;
 
     }
 </script>
