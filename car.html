@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Order a car using web app</title>
+ </head>
+<body>
+    <header>
+        <h1>Baliram Maurya orders a car</h1>
+    </header>
+    <label for="form1_base">Enter a base </label>
+    <input type ="number" id="form1_base" name="base" value=10> <br>
+    <label for="form1_exponent">Enter a exponent </label>
+    <input type ="number" id="form1_exponent" name="exponent" value = "2"> <br>
+    <button name="compute" onclick="powers()">Compute</button>
+
+<p id ="result"></p>
+
+<form>
+    <label for="form1_plus"></label>+ </label>
+    <input type="radio" id="rg_plus" name="plus" value="Plus" onclick="processRadio(this.value)"> <br>
+    <label for="form1_minus"></label>- </label>
+    <input type="radio" id="rg1_minus" name="minus" value="minus" onclick="processRadio(this.value)"> <br>
+    <label for="form1_times"></label>* </label>
+    <input type="radio" id="rg1_times" name="times" value="times" onclick="processRadio(this.value)"> <br>
+    <label for="form1_divide"></label>/ </label>
+    <input type="radio" id="rg1_divide" name="divide" value="divide" onclick="processRadio(this.value)">
+</form>
+<p id ="result1"></p>
+<form>
+    <input type="checkbox" id="electric" name="electric"   
+    value="electric">
+    <label for="cb1_electric">electric</label></br>  
+    <input type="checkbox" id="ac" name="ac"   
+    value="ac">
+    <label for="cb1_ac">ac</label></br>  
+    <input type="checkbox" id="gps" name="gps"   
+    value="gps">
+    <label for="cb1_gps">gps</label>
+    <input type="button" onclick="orderCar()" value="Order a car">
+  </form>
+  <p id ="result2"></p>
+<script>
+    function powers()
+    {
+       result = " ";
+       let base = document.getElementById("form1_base").value;
+       let  exponent = document.getElementById("form1_exponent").value;      
+       out = document.getElementById("result");
+       for(var i = 1;i<=exponent;i++)
+       {
+        compute = Math.pow(base,i);        
+        result = result+ compute+" ";
+       }
+       out.innerHTML = "Powers of "+base+" are:"+result+"(exponent was"+exponent+")";
+
+    }
+    function processRadio(value)
+    {
+        let base = document.getElementById("form1_base").value;
+        let  exponent = document.getElementById("form1_exponent").value;    
+        out = document.getElementById("result1");
+        let operator = value;
+        if(operator =="Plus")
+        {
+            out.innerHTML = " base+exponent: " +(parseInt(base)+parseInt(exponent));
+        }
+        if(operator =="minus")
+        {
+            out.innerHTML = " base - exponent: " +(base-exponent);
+        }
+        if(operator =="times")
+        {
+            out.innerHTML = " base * exponent: " +(base*exponent);
+        }
+        if(operator =="divide")
+        {
+            out.innerHTML = " base/exponent: " +(base/exponent);
+        }
+    }
+    function  orderCar()
+    {
+        var my_car =[];
+        let ac = document.getElementById("ac");
+        let electric = document.getElementById("electric");
+        let gps = document.getElementById("gps");
+        result = document.getElementById("result2");
+        if(ac.checked == true)
+        {
+            my_car.push({"ac":true});
+           
+        }
+        if(ac.checked == false)
+        {
+            my_car.push({"ac":false});
+           
+        }
+        if(electric.checked == true)
+        {
+           my_car.push({"electric":true});
+            
+        }
+        if(electric.checked == false)
+        {
+           my_car.push({"electric":false});
+            
+        }
+        if(gps.checked == true)
+        {
+           my_car.push({"gps":true});
+        }
+        if(gps.checked == false)
+        {
+           my_car.push({"gps":false});
+        }
+        result.innerHTML="car properties: ac: "+my_car[0].ac+", electric: "+my_car[1].electric+", gps:"+my_car[2].gps;
+
+    }
+</script>
+
+</body>
+</html> 
