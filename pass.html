@@ -23,9 +23,30 @@
 
 
 <p id="result"> </p>
-
+<div ><img id="img" src="1.jpg" height="200" width="200" onclick="newImage()"/></div>
 <script> 
+var usingImage = 1;
+function newImage()
+{
+    usingImage = usingImage+1;
+    
+    switch(usingImage)
+    {        
+        case 1:
+        document.getElementById('img').src="1.jpg";             
+        break;
+        case 2:
+        document.getElementById('img').src="2.jpg";
+        break;
+        case 3:
+        document.getElementById('img').src="3.jpg";       
+        break;
+        default:
+        document.getElementById('img').src="1.jpg";
+              
 
+    }
+}
 function processPhrase (){
     console.log("Validate input using javascript");
     var correct = 0;
