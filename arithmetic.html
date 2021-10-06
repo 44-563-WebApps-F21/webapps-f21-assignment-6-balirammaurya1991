@@ -14,6 +14,18 @@
     <button name="compute" onclick="powers()">Compute</button>
 
 <p id ="result"></p>
+
+<form>
+    <label for="form1_plus"></label>+ </label>
+    <input type="radio" id="rg_plus" name="plus" value="Plus" onclick="processRadio(this.value)"> <br>
+    <label for="form1_minus"></label>- </label>
+    <input type="radio" id="rg1_minus" name="minus" value="minus" onclick="processRadio(this.value)"> <br>
+    <label for="form1_times"></label>* </label>
+    <input type="radio" id="rg1_times" name="times" value="times" onclick="processRadio(this.value)"> <br>
+    <label for="form1_divide"></label>/ </label>
+    <input type="radio" id="rg1_divide" name="divide" value="divide" onclick="processRadio(this.value)">
+</form>
+<p id ="result1"></p>
 <script>
     function powers()
     {
@@ -23,12 +35,34 @@
        out = document.getElementById("result");
        for(var i = 1;i<=exponent;i++)
        {
-        compute = Math.pow(base,i);
-        console.log("********************************",compute);
+        compute = Math.pow(base,i);        
         result = result+ compute+" ";
        }
        out.innerHTML = "Powers of "+base+" are:"+result+"(exponent was"+exponent+")";
 
+    }
+    function processRadio(value)
+    {
+        let base = document.getElementById("form1_base").value;
+        let  exponent = document.getElementById("form1_exponent").value;    
+        out = document.getElementById("result1");
+        let operator = value;
+        if(operator =="Plus")
+        {
+            out.innerHTML = " base+exponent: " +(parseInt(base)+parseInt(exponent));
+        }
+        if(operator =="minus")
+        {
+            out.innerHTML = " base - exponent: " +(base-exponent);
+        }
+        if(operator =="times")
+        {
+            out.innerHTML = " base * exponent: " +(base*exponent);
+        }
+        if(operator =="divide")
+        {
+            out.innerHTML = " base/exponent: " +(base/exponent);
+        }
     }
 </script>
 
